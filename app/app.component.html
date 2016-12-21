@@ -1,0 +1,16 @@
+<StackLayout class="p-20" *ngIf="initScreenLevel == 0">
+    <Label text="Start the Game" class="h1 text-center"></Label>
+    <Button text="TAP" (tap)="start()" class="btn btn-primary btn-active"></Button>
+</StackLayout>
+
+<StackLayout class="p-20" *ngIf="initScreenLevel == 1">
+    <Label text="Tap the 2" class="h1 text-center"></Label>
+</StackLayout>
+
+<StackLayout class="p-20" *ngIf="initScreenLevel == 2">
+    <Label text="Tap the 3" class="h1 text-center"></Label>
+</StackLayout>
+
+<StackLayout class="p-20" *ngIf="initScreenLevel == 3">
+    <Label text="Tap the 4" class="h1 text-center"></Label>
+</StackLayout>
