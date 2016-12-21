@@ -4,7 +4,9 @@
 </StackLayout>
 
 <StackLayout class="p-20" *ngIf="initScreenLevel == 1">
-    <Label text="Tap the 2" class="h1 text-center"></Label>
+    <Label text="Number of alphabets in your WORD" class="h3 text-center"></Label>
+    <TextField hint="No. of alphabets" [(ngModel)]="noOfAlphabets"></TextField>
+    <Button text="Next" (tap)="saveNumber()" class="btn btn-primary btn-active"></Button>
 </StackLayout>
 
 <StackLayout class="p-20" *ngIf="initScreenLevel == 2">

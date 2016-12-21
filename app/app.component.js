@@ -7,6 +7,7 @@ var AppComponent = (function () {
         this.table1 = [];
         this.table2 = [];
         this.initScreenLevel = 0;
+        this.noOfAlphabets = 0;
         this.table1[0] = ['A', 'B', 'C', 'D', 'E'];
         this.table1[1] = ['F', 'G', 'H', 'I', 'J'];
         this.table1[2] = ['K', 'L', 'M', 'N', 'O'];
@@ -27,6 +28,10 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.start = function () {
         this.screenChange.makeScreenChange(1);
+    };
+    AppComponent.prototype.saveNumber = function () {
+        this.noOfAlphabets = this.noOfAlphabets;
+        this.screenChange.makeScreenChange(2);
     };
     AppComponent = __decorate([
         core_1.Component({

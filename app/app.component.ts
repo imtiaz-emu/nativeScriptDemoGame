@@ -9,6 +9,7 @@ export class AppComponent implements OnInit{
     public table1 = [];
     public table2 = [];
     public initScreenLevel = 0;
+    public noOfAlphabets = 0;
 
     constructor(public screenChange: ScreenChange) {
         this.table1[0] = ['A', 'B', 'C', 'D', 'E'];
@@ -33,6 +34,9 @@ export class AppComponent implements OnInit{
     public start(){
         this.screenChange.makeScreenChange(1);
     }
-
+    public saveNumber(){
+        this.noOfAlphabets = this.noOfAlphabets;
+        this.screenChange.makeScreenChange(2);
+    }
 
 }
