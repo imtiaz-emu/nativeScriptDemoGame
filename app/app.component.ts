@@ -10,6 +10,7 @@ export class AppComponent implements OnInit{
     public table2 = [];
     public initScreenLevel = 0;
     public noOfAlphabets = 0;
+    public noOfTextFields = [];
 
     constructor(public screenChange: ScreenChange) {
         this.table1[0] = ['A', 'B', 'C', 'D', 'E'];
@@ -28,14 +29,21 @@ export class AppComponent implements OnInit{
     ngOnInit(){
         this.screenChange.screenChange$.subscribe(data =>{
             this.initScreenLevel = data;
-        })
+        });
+        this.screenChange.saveNoAlphabets$.subscribe(data =>{
+            this.noOfAlphabets = data;
+            for(var I=1; I<=this.noOfAlphabets; I++){
+                this.noOfTextFields.push(I);
+            }
+        });
     }
 
     public start(){
         this.screenChange.makeScreenChange(1);
     }
-    public saveNumber(){
-        this.noOfAlphabets = this.noOfAlphabets;
+
+    public saveNumber(value){
+        this.screenChange.saveNoAlphabets(value);
         this.screenChange.makeScreenChange(2);
     }
 

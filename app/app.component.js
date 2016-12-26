@@ -8,6 +8,7 @@ var AppComponent = (function () {
         this.table2 = [];
         this.initScreenLevel = 0;
         this.noOfAlphabets = 0;
+        this.noOfTextFields = [];
         this.table1[0] = ['A', 'B', 'C', 'D', 'E'];
         this.table1[1] = ['F', 'G', 'H', 'I', 'J'];
         this.table1[2] = ['K', 'L', 'M', 'N', 'O'];
@@ -25,12 +26,18 @@ var AppComponent = (function () {
         this.screenChange.screenChange$.subscribe(function (data) {
             _this.initScreenLevel = data;
         });
+        this.screenChange.saveNoAlphabets$.subscribe(function (data) {
+            _this.noOfAlphabets = data;
+            for (var I = 1; I <= _this.noOfAlphabets; I++) {
+                _this.noOfTextFields.push(I);
+            }
+        });
     };
     AppComponent.prototype.start = function () {
         this.screenChange.makeScreenChange(1);
     };
-    AppComponent.prototype.saveNumber = function () {
-        this.noOfAlphabets = this.noOfAlphabets;
+    AppComponent.prototype.saveNumber = function (value) {
+        this.screenChange.saveNoAlphabets(value);
         this.screenChange.makeScreenChange(2);
     };
     AppComponent = __decorate([

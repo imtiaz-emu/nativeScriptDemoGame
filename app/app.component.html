@@ -5,12 +5,26 @@
 
 <StackLayout class="p-20" *ngIf="initScreenLevel == 1">
     <Label text="Number of alphabets in your WORD" class="h3 text-center"></Label>
-    <TextField hint="No. of alphabets" [(ngModel)]="noOfAlphabets"></TextField>
-    <Button text="Next" (tap)="saveNumber()" class="btn btn-primary btn-active"></Button>
+    <TextField #noOfAlphabet hint="No. of alphabets" [(ngModel)]="noOfAlphabets"></TextField>
+    <Button text="Next" (tap)="saveNumber(noOfAlphabet.text)" class="btn btn-primary btn-active"></Button>
 </StackLayout>
 
-<StackLayout class="p-20" *ngIf="initScreenLevel == 2">
-    <Label text="Tap the 3" class="h1 text-center"></Label>
+<StackLayout class="p-20 input-field" *ngIf="initScreenLevel == 2">
+    <ListView [items]="table1">
+        <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout [class.odd]="odd" [class.even]="even">
+                <Label [text]='"Column: " + (i+1) + ": " + item'></Label>
+            </StackLayout>
+        </template>
+    </ListView>
+
+    <Label class="label" style="margin-top: 20px" text="Keyboard types" row="8" col="0" textWrap="true"></Label>
+    <ListView [items]="noOfTextFields">
+        <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <TextField #noOfField_{{item}} hint="Column no. of Alphabet {{i+1}}"></TextField>
+        </template>
+    </ListView>
+
 </StackLayout>
 
 <StackLayout class="p-20" *ngIf="initScreenLevel == 3">
